@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>About Me</h1>
+<section class="about-me">
+    <img src="{{ url_for('static', filename='img/profile_pic.jpg') }}" alt="Profile Picture" class="profile-pic">
+    <p>Hello! I'm Mărgărint Rareș, a Python developer passionate about building efficient and scalable applications.</p>
+    <p>I have experience with various Python frameworks and tools, and I enjoy working on projects involving data analysis, web development, and automation.</p>
+    <p>Feel free to check out my portfolio to see some of the projects I've been working on!</p>
+</section>
+
+<section class="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+        <h3>Python</h3>
+        <div class="stars">
+            ⭐⭐⭐⭐
+        </div>
+    </div>
+    <div class="skill">
+        <h3>Flask</h3>
+        <div class="stars">
+            ⭐⭐⭐⭐
+        </div>
+    </div>
+    <div class="skill">
+        <h3>Django</h3>
+        <div class="stars">
+            ⭐⭐⭐
+        </div>
+    </div>
+    <div class="skill">
+        <h3>Data Analysis</h3>
+        
+        <div class="stars">
+            ⭐⭐⭐⭐
+        </div>
+    <!-- Add more skills as needed -->
+</section>
+
+<section class="interests">
+    <h2>Interests</h2>
+    <div class="interest-images">
+        <img src="{{ url_for('static', filename='img/py_programming.jpg') }}" alt="Python Programming" class="interest-img">
+        <img src="{{ url_for('static', filename='img/data_analysis.jpg') }}" alt="Data Analysis" class="interest-img">
+        <img src="{{ url_for('static', filename='img/web_dev.jpg') }}" alt="Web Development" class="interest-img">
+    </div>
+</section>
+{% endblock %}
