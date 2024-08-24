@@ -48,9 +48,13 @@ header nav a:hover {
 .about-me {
     text-align: center;
     margin-bottom: 40px;
-    max-width: 800px; /* Center the content and limit the width */
+    max-width: 700px; /* Reduce width to bring it closer to the center */
     margin-left: auto;
     margin-right: auto;
+    padding: 20px; /* Add padding for better spacing */
+    background-color: #fff; /* Add background to distinguish it */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border-radius: 8px; /* Rounded corners for a modern look */
 }
 
 /* Profile Picture Styling */
@@ -75,25 +79,72 @@ header nav a:hover {
 }
 
 /* Skills Section */
+/* Skills Section */
 .skills {
     flex: 1; /* Make skills section flexible */
     min-width: 300px; /* Ensure it doesn’t get too small */
-    margin-right: 20px; /* Add some space between skills and interests */
+    margin: 0 auto; /* Center the skills section */
+    max-width: 700px; /* Reduce width to bring it closer to the center */
+    padding: 20px; /* Add padding for better spacing */
+    background-color: #fff; /* Add background to distinguish it */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border-radius: 8px; /* Rounded corners for a modern look */
 }
 
 .skills h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
+    color: #333; /* Darker text color for better readability */
 }
 
+/* Skill Item */
 .skill {
     margin-bottom: 20px;
+    padding: 15px; /* Add padding around skill items */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color for each skill */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.skill:hover {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .skill h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: #000000; /* Accent color for text */
+    display: flex;
+    align-items: center; /* Align text and star rating vertically */
+    gap: 10px; /* Space between text and stars */
+}
+
+.stars {
+    font-size: 1.5rem; /* Increase font size for stars */
+    color: #f39c12; /* Gold color for stars */
+    display: inline-block; /* Ensure stars are inline with text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .skill {
+        padding: 10px; /* Reduce padding on skill items */
+    }
+
+    .skill h3 {
+        font-size: 1.25rem; /* Reduce font size on smaller screens */
+    }
+
+    .stars {
+        font-size: 1.25rem; /* Reduce font size for stars */
+    }
 }
 
 /* Interests Section */
@@ -116,8 +167,8 @@ header nav a:hover {
 }
 
 .interest-img {
-    width: 300px; /* Set a fixed width for the images */
-    height: 200px; /* Set a fixed height for the images */
+    width: 380px; /* Set a fixed width for the images */
+    height: 220px; /* Set a fixed height for the images */
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
