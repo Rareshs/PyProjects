@@ -16,6 +16,13 @@ projects = [
         "images": ["boston_house_prices.jpg"],  
         "technologies": ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn","Numpy"],
         "url": "pdf/Multivariable_Regression_and_Valuation_Model_(start).pdf" 
+    },
+    {
+        "title": "Udemy 100 Day Python",
+        "description": "This comprehensive project reflects the culmination of my journey through Udemy's '100 Days of Code' Python course. The project showcases various aspects of Python programming, including automation, data analysis, and web scraping. It's a testament to the practical skills and knowledge I've gained, which I now apply in real-world scenarios.",
+        "images": ["learning.jpg"],
+        "technologies": ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn","Numpy","Selenium"],
+        "url": "https://github.com/Rareshs/PyProjects" 
     }
 ]
 
