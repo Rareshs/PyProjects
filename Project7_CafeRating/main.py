@@ -71,5 +71,40 @@ def delete_cafe(cafe_id):
     
     flash(f"The cafe '{cafe_to_delete.name}' has been deleted.", "success")
     return redirect(url_for('home'))
+
+@app.route('/edit/<int:cafe_id>', methods=["GET", "POST"])
+def edit_cafe(cafe_id):
+    cafe = Cafe.query.get_or_404(cafe_id)
+    form = AddCafeForm(
+        name=cafe.name,
+        map_url=cafe.map_url,
+        img_url=cafe.img_url,
+        location=cafe.location,
+        has_sockets=cafe.has_sockets,
+        has_toilet=cafe.has_toilet,
+        has_wifi=cafe.has_wifi,
+        can_take_calls=cafe.can_take_calls,
+        seats=cafe.seats,
+        coffee_price=cafe.coffee_price
+    )
+
+    if form.validate_on_submit():
+        cafe.name = form.name.data
+        cafe.map_url = form.map_url.data
+        cafe.img_url = form.img_url.data
+        cafe.location = form.location.data
+        cafe.has_sockets = form.has_sockets.data
+        cafe.has_toilet = form.has_toilet.data
+        cafe.has_wifi = form.has_wifi.data
+        cafe.can_take_calls = form.can_take_calls.data
+        cafe.seats = form.seats.data
+        cafe.coffee_price = form.coffee_price.data
+        
+        db.session.commit()
+        flash(f"The cafe '{cafe.name}' has been updated successfully!", "success")
+        return redirect(url_for('home'))
+    
+    return render_template('edit_cafe.html', form=form, cafe=cafe)
+
 if __name__ == "__main__":
     app.run(debug=True)

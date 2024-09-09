@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Edit Cafe</h2>
+    <form method="POST" action="{{ url_for('edit_cafe', cafe_id=cafe.id) }}">
+        {{ form.hidden_tag() }}
+        
+        <!-- Cafe Name -->
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class_="form-control", placeholder="Enter Cafe's Name") }}
+            {% for error in form.name.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Map URL -->
+        <div class="form-group">
+            {{ form.map_url.label(class="form-label") }}
+            {{ form.map_url(class_="form-control", placeholder="Enter Map URL") }}
+            {% for error in form.map_url.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Image URL -->
+        <div class="form-group">
+            {{ form.img_url.label(class="form-label") }}
+            {{ form.img_url(class_="form-control", placeholder="Enter Image URL") }}
+            {% for error in form.img_url.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+            {{ form.location.label(class="form-label") }}
+            {{ form.location(class_="form-control", placeholder="Enter Location") }}
+            {% for error in form.location.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Has Sockets -->
+        <div class="form-group form-check">
+            {{ form.has_sockets(class_="form-check-input") }}
+            {{ form.has_sockets.label(class="form-check-label") }}
+        </div>
+
+        <!-- Has Toilet -->
+        <div class="form-group form-check">
+            {{ form.has_toilet(class_="form-check-input") }}
+            {{ form.has_toilet.label(class="form-check-label") }}
+        </div>
+
+        <!-- Has WiFi -->
+        <div class="form-group form-check">
+            {{ form.has_wifi(class_="form-check-input") }}
+            {{ form.has_wifi.label(class="form-check-label") }}
+        </div>
+
+        <!-- Can Take Calls -->
+        <div class="form-group form-check">
+            {{ form.can_take_calls(class_="form-check-input") }}
+            {{ form.can_take_calls.label(class="form-check-label") }}
+        </div>
+
+        <!-- Number of Seats -->
+        <div class="form-group">
+            {{ form.seats.label(class="form-label") }}
+            {{ form.seats(class_="form-control", placeholder="Enter Number of Seats") }}
+            {% for error in form.seats.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Coffee Price -->
+        <div class="form-group">
+            {{ form.coffee_price.label(class="form-label") }}
+            {{ form.coffee_price(class_="form-control", placeholder="Enter Coffee Price") }}
+            {% for error in form.coffee_price.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Submit and Cancel Buttons -->
+        <button type="submit" class="btn btn-primary mt-3">Update Cafe</button>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}
