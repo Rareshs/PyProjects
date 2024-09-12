@@ -5,7 +5,7 @@ from tkinter import filedialog, messagebox
 from tkinter import ttk
 import os
 
-API_KEY = os.getenv('API_KEY')  # Replace with your Voice RSS API key
+API_KEY = os.getenv('API_KEY')  
 
 # Default save directory
 DEFAULT_SAVE_DIR = os.path.expanduser("~/Downloads")  # Change this to your preferred directory
