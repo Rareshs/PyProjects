@@ -17,7 +17,7 @@ class Auto_Reset_Text(Tk.Tk):
         self.text_widget.bind('<KeyPress>', self.on_keypress)
 
         self.reset_timer = None
-        self.reset_delay = 5000  # 5000 milliseconds (5 seconds)
+        self.reset_delay = 5000  #(5 seconds)
 
     def on_keypress(self, event):
         if self.text_widget.get('1.0', 'end-1c') == self.placeholder_text:
