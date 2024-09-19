@@ -1,5 +1,5 @@
 from tkinter import Tk, Canvas, Label, Button, messagebox
-
+import random
 colors = ["red", "green", "yellow", "blue", "purple", "brown"]
 
 paddle_width = 100
@@ -106,7 +106,7 @@ def create_bricks():
             x2 = x1 + brick_width
             y2 = y1 + brick_height
             color = colors[row % len(colors)]
-            brick = canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="black")
+            brick = canvas.create_rectangle(x1, y1, x2, y2, fill=random.choice(color), outline="black")
             bricks.append(brick)
 
 def restart_game():

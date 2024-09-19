@@ -8,7 +8,7 @@ def jump():
     print("Jump!")
 
 def capture_screen_box():
-    box = (450, 650, 550, 720)
+    box = (450, 650, 550, 720 )
     image = ImageGrab.grab(box)
     gray_image = ImageOps.grayscale(image)
     return np.array(gray_image)
