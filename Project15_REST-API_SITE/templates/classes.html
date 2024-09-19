@@ -11,7 +11,7 @@ D&D Classes
         <ul class="list-group">
             {% for class in classes %}
             <li class="list-group-item">
-                <strong>{{ class.name }}</strong>
+                <a href="{{ url_for('class_detail', class_id=class.index) }}">{{class.name}}</a>
             </li>
             {% endfor %}
         </ul>

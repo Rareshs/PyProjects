@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ class_info.name }} - D&D Class
+{% endblock %}
+
+{% block content %}
+<h2>{{ class_info.name }}</h2>
+<p><strong>Hit Die:</strong> {{ class_info.hit_die }}</p>
+
+<h3>Proficiencies:</h3>
+<ul>
+    {% for proficiency in class_info.proficiencies %}
+    <li>{{ proficiency.name }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Saving Throws:</h3>
+<ul>
+    {% for saving_throw in class_info.saving_throws %}
+    <li>{{ saving_throw.name }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Starting Equipment:</h3>
+<ul>
+    <ul>
+        {% for equipment in class_info.starting_equipment %}
+            <li>{{ equipment.equipment.name }} ({{ equipment.quantity }})</li>
+        {% endfor %}
+    </ul>
+</ul>
+{% endblock %}

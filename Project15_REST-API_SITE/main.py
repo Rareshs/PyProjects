@@ -19,6 +19,11 @@ def classes():
     classes = data.get('results', [])
     return render_template("classes.html", classes=classes)
 
+@app.route("/classes/<class_id>")
+def class_detail(class_id):
+    class_info = fetch_data(f"classes/{class_id}")
+    return render_template("class_details.html", class_info=class_info)
+
 @app.route("/spells")
 def spells():
     level_filter = request.args.get('level')
@@ -31,7 +36,6 @@ def spells():
     if school_filter:
         params['school'] = school_filter
 
-    # Fetch spells data with filters
     data = fetch_data("spells", params=params)
     spells = data.get('results', [])
 
