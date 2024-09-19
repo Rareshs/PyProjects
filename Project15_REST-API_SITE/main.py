@@ -49,5 +49,11 @@ def spell_detail(spell_id):
     spell_info = fetch_data(f"spells/{spell_id}")
     return render_template("spell_detail.html", spell=spell_info)
 
+@app.route("/monsters")
+def monsters():
+    data=fetch_data("monsters")
+    monsters=data.get('results',[])
+    return render_template("monsters.html", monsters=monsters)
+
 if __name__ == "__main__":
     app.run(debug=True)
