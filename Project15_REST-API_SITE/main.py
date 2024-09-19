@@ -3,8 +3,10 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-def fetch_data(endpoint):
-    response = requests.get(f"https://www.dnd5eapi.co/api/{endpoint}")
+def fetch_data(endpoint, params=None):
+    url = f"https://www.dnd5eapi.co/api/{endpoint}"
+    print("Request URL:", url, "Params:", params)  # Debugging line
+    response = requests.get(url, params=params)
     return response.json()
 
 @app.route("/")
@@ -22,30 +24,25 @@ def spells():
     level_filter = request.args.get('level')
     school_filter = request.args.get('school')
 
-    # Fetch spells data
-    data = fetch_data("spells")
+    # Prepare query parameters
+    params = {}
+    if level_filter:
+        params['level'] = level_filter
+    if school_filter:
+        params['school'] = school_filter
+
+    # Fetch spells data with filters
+    data = fetch_data("spells", params=params)
     spells = data.get('results', [])
 
-    # Debugging: Print a sample spell to check the school structure
-    if spells:
-        print("Sample spell:", spells[0])
-
-    if level_filter:
-        levels = [int(level) for level in level_filter.split(',')]
-        spells = [spell for spell in spells if spell['level'] in levels]
-
-    if school_filter:
-        schools = [school.strip().lower() for school in school_filter.split(',')]
-        # Filtering spells based on the school index
-        spells = [spell for spell in spells if spell.get('school', {}).get('index', '').lower() in schools]
-
-    print("Filtered spells count:", len(spells))  # Debugging line
+    # print("Filtered spells count:", len(spells))  # Debugging line
+    # print("Response Data:", data)  # Debugging line
 
     return render_template("spells.html", spells=spells)
 
 @app.route("/spells/<spell_id>")
 def spell_detail(spell_id):
-    spell_info = requests.get(f"https://www.dnd5eapi.co/api/spells/{spell_id}").json()
+    spell_info = fetch_data(f"spells/{spell_id}")
     return render_template("spell_detail.html", spell=spell_info)
 
 if __name__ == "__main__":
