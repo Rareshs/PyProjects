@@ -1,0 +1,25 @@
+<!-- cart.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Cart</h2>
+
+{% if cart_items %}
+    <ul>
+    {% for item in cart_items %}
+        <li>
+            {{ product_dict[item.product_id].name }} - 
+            Quantity: {{ item.quantity }} - 
+            Price: ${{ product_dict[item.product_id].price * item.quantity }}
+            <a href="{{ url_for('remove_from_cart', product_id=item.product_id) }}">Remove</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <h4>Total Price: ${{ total_price }}</h4>
+    <a href="{{ url_for('checkout') }}" class="btn btn-primary">Checkout</a>
+{% else %}
+    <p>Your cart is empty.</p>
+{% endif %}
+
+<a href="{{ url_for('home') }}" class="btn btn-secondary">Continue Shopping</a>
+{% endblock %}

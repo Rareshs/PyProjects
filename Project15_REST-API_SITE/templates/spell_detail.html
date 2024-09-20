@@ -7,7 +7,7 @@
 {% block content %}
 <h2>{{ spell.name }}</h2>
 <p><strong>Level:</strong> {{ spell.level }}</p>
-<p><strong>School:</strong> {{ spell.school }}</p>
+<p><strong>School:</strong> {{ spell.school.name }}</p>
 <p><strong>Description:</strong> {{ spell.desc|join(', ') }}</p>
 <!-- Add more details as needed -->
 {% endblock %}
